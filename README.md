@@ -1,6 +1,6 @@
 # M164
 
-
+# Lernjournal Tag 1
 # Wissenstreppe
 # Wissenstreppe: Wechselkurs
 
@@ -110,14 +110,6 @@ flowchart TD
   - **Constraints:** PK, FK, Unique, Not Null.  
 
 ---
-# Lernjournal Tag 6
-
-## Prüfungs fehler
-
-- Um einen sinnvolle Information zu können braucht es einen definierten Zeichensatz.(z.B. UTF-8)
-- Ordnen gegebenen Daten den korrekten Strukturen zu.
-- JSON Stuktur machen.
-- Ordne den Literale den Datentypen zu.
 
 ## ERM
 
