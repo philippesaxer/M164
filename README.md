@@ -1,7 +1,7 @@
 # M164
 
-# Lernjournal Tag 1
-# Wissenstreppe Wechselkurs
+# Lernjournal Tag 1 - Repetition
+## Wissenstreppe Wechselkurs
 
 ```mermaid
 flowchart TD
