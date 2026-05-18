@@ -159,3 +159,56 @@ flowchart TD
 |-----------|-------------|
 | 1         | Mathe       |
 | 1         | Informatik  |
+
+
+
+# Lernjournal Tag 2
+
+## Generalisierung und Spezialisierung in Datenbanken
+
+Die Datenbankmodellierung basiert auf dem Attributkonzept, bei dem Entitätstypen durch Attribute beschrieben werden. Wenn mehrere Entitätstypen viele gemeinsame Attribute besitzen, entsteht das Problem der Redundanz, besonders wenn reale Objekte mehreren Typen zugeordnet werden (z. B. Mitarbeiter und Kunden oder Fahrer und Disponenten).
+
+Zur Lösung wird das Konzept der **Generalisierung und Spezialisierung** verwendet:
+
+- **Generalisierung:** Gemeinsame Attribute werden in einem übergeordneten Entitätstyp zusammengefasst (z. B. *Person*).
+- **Spezialisierung:** Spezifische Attribute bleiben in den Untertypen (z. B. *Mitarbeiter*, *Kunde*).
+- Es entsteht eine **„is-a“-Beziehung** (z. B. „Fahrer ist eine Person“).
+- Die Untertypen werden über **Fremdschlüssel** mit dem Obertyp verbunden, um Informationsverlust zu vermeiden.
+- Dieses Prinzip entspricht der **Vererbung in der objektorientierten Programmierung**.
+
+---
+
+## Diagramm (Mermaid)
+
+```mermaid
+classDiagram
+
+class Person {
+  +Name
+  +Adresse
+  +Geburtsdatum
+}
+
+class Mitarbeiter {
+  +Personalnummer
+  +Abteilung
+}
+
+class Kunde {
+  +Kundennummer
+  +Kreditlimit
+}
+
+class Fahrer {
+  +Führerscheinklasse
+}
+
+class Disponent {
+  +Schichtplan
+}
+
+Person <|-- Mitarbeiter
+Person <|-- Kunde
+Mitarbeiter <|-- Fahrer
+Mitarbeiter <|-- Disponent
+```
