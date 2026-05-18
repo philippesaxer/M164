@@ -252,12 +252,13 @@ Beispiel:
 ---
 
 ## Beispielmodell (Person – Kleidung – Ausweis)
+## Beispielmodell (Person – Kleidung – Ausweis)
+
 ```mermaid
 erDiagram
 
-PERSON ||--o{ KLEIDUNG : non_identifying
-PERSON ||--|| AUSWEIS : identifying
-```
+PERSON ||--o{ KLEIDUNG : traegt
+PERSON ||--|| AUSWEIS : besitzt
 
 PERSON {
   int person_id PK
@@ -278,9 +279,6 @@ AUSWEIS {
   date gueltig_bis
 }
 ```
-
----
-
 ## Merksatz
 
 Identifying Relationship: Der Fremdschlüssel ist Teil des Primärschlüssels und das Kind ist existenziell abhängig vom Parent.
