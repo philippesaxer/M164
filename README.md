@@ -252,12 +252,12 @@ Beispiel:
 ---
 
 ## Beispielmodell (Person – Kleidung – Ausweis)
-
 ```mermaid
 erDiagram
 
-PERSON ||--o{ KLEIDUNG : trägt (non-identifying)
-PERSON ||--|| AUSWEIS : besitzt (identifying)
+PERSON ||--o{ KLEIDUNG : non_identifying
+PERSON ||--|| AUSWEIS : identifying
+```
 
 PERSON {
   int person_id PK
