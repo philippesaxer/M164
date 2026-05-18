@@ -287,6 +287,25 @@ Non-Identifying Relationship: Der Fremdschlüssel ist nicht Teil des Primärschl
 
 ---
 
+
+```mermaid
+erDiagram
+
+BESTELLUNG ||--o{ BESTELLPOSITION : enthaelt
+
+BESTELLUNG {
+  int bestell_id PK
+  date datum
+  string kunde
+}
+
+BESTELLPOSITION {
+  int bestell_id PK, FK
+  int positions_nr PK
+  string artikel
+  int menge
+}
+```
 ## Kurzvergleich
 
 | Beziehung | FK im PK | Abhängigkeit | Beispiel |
