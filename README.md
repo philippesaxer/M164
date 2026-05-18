@@ -212,3 +212,86 @@ Person <|-- Kunde
 Mitarbeiter <|-- Fahrer
 Mitarbeiter <|-- Disponent
 ```
+
+## Identifying vs. Non-Identifying Relationships
+
+In Datenbanken unterscheidet man zwischen **Identifying Relationships** und **Non-Identifying Relationships**. Dabei geht es darum, ob der Fremdschlüssel Teil des Primärschlüssels der Kind-Tabelle ist oder nicht.
+
+---
+
+## Identifying Relationship
+
+Eine Identifying Relationship liegt vor, wenn der **Fremdschlüssel Teil des Primärschlüssels** der Child-Tabelle ist.
+
+Eigenschaften:
+- Das Kind-Objekt kann ohne das Parent-Objekt nicht existieren
+- starke Abhängigkeit zwischen den Entitäten
+- ähnliche Struktur wie eine UML-Komposition
+- die Identität des Kindes ergibt sich aus der Kombination von Parent-Schlüssel und eigenem Anteil
+
+Beispiel:
+- Person → Ausweis  
+- Ein Ausweis gehört eindeutig zu einer Person und existiert nicht unabhängig
+
+---
+
+## Non-Identifying Relationship
+
+Eine Non-Identifying Relationship liegt vor, wenn der **Fremdschlüssel nicht Teil des Primärschlüssels** der Child-Tabelle ist.
+
+Eigenschaften:
+- das Kind-Objekt kann unabhängig vom Parent existieren
+- geringere Abhängigkeit zwischen den Entitäten
+- der Fremdschlüssel dient nur zur Verknüpfung
+- die Identität des Kindes bleibt unabhängig vom Parent
+
+Beispiel:
+- Person → Kleidung  
+- Kleidung kann unabhängig von einer bestimmten Person existieren oder wechseln
+
+---
+
+## Beispielmodell (Person – Kleidung – Ausweis)
+
+```mermaid
+erDiagram
+
+PERSON ||--o{ KLEIDUNG : trägt (non-identifying)
+PERSON ||--|| AUSWEIS : besitzt (identifying)
+
+PERSON {
+  int person_id PK
+  string name
+  string adresse
+}
+
+KLEIDUNG {
+  int kleidungs_id PK
+  int person_id FK
+  string typ
+  string farbe
+}
+
+AUSWEIS {
+  int person_id PK, FK
+  string ausweisnummer
+  date gueltig_bis
+}
+```
+
+---
+
+## Merksatz
+
+Identifying Relationship: Der Fremdschlüssel ist Teil des Primärschlüssels und das Kind ist existenziell abhängig vom Parent.
+
+Non-Identifying Relationship: Der Fremdschlüssel ist nicht Teil des Primärschlüssels und das Kind ist unabhängig vom Parent.
+
+---
+
+## Kurzvergleich
+
+| Beziehung | FK im PK | Abhängigkeit | Beispiel |
+|----------|----------|--------------|----------|
+| Identifying | Ja | stark | Person – Ausweis |
+| Non-Identifying | Nein | schwach | Person – Kleidung |
