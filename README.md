@@ -312,3 +312,22 @@ BESTELLPOSITION {
 |----------|----------|--------------|----------|
 | Identifying | Ja | stark | Person – Ausweis |
 | Non-Identifying | Nein | schwach | Person – Kleidung |
+
+
+
+| Datentyp | MariaDB (MySQL) | Beispiel | Bemerkung / Einstellungen |
+| :--- | :--- | :--- | :--- |
+| **Ganze Zahlen** | `INT` (oder `INTEGER`, `SMALLINT`, `TINYINT`, `BIGINT`) | `42` oder `-105` | Speichert positive und negative ganze Zahlen ohne Nachkommastellen. |
+| **Natürliche Zahlen** | `INT UNSIGNED` | `15` | Durch den Zusatz `UNSIGNED` werden negative Werte ausgeschlossen (Wertebereich beginnt bei 0). |
+| Festkommazahlen (Dezimalzahlen) | Decimal(M[,D]) | Decimal(6,2)<br>1234.56 | M=Gesamte Anzahl Stellen<br>D=Nachkommastellen |
+| **Aufzählungstypen** | `ENUM('Wert1', 'Wert2', ...)` | `ENUM('klein', 'mittel', 'gross')` | Erlaubt die Auswahl genau eines Wertes aus einer vordefinierten Liste. |
+| **Boolean (logische Werte)** | `BOOLEAN` (oder `BOOL`) | `TRUE` oder `FALSE` | Intern wird dies als `TINYINT(1)` umgesetzt, wobei `0` für falsch und `1` für wahr steht. |
+| **Zeichen (einzelnes Zeichen)** | `CHAR(1)` | `'A'` | Speichert exakt ein Zeichen ab. |
+| **Gleitkommazahlen** | `FLOAT` / `DOUBLE` | `DOUBLE`<br>`3.14159` | Für ungenaue, aber sehr grosse oder sehr kleine Dezimalzahlen (z.B. für wissenschaftliche Berechnungen). |
+| **Zeichenkette fester Länge** | `CHAR(M)` | `CHAR(5)` -> `'CH   '` | Hat immer die feste Länge M (wird mit Leerzeichen aufgefüllt). Maximal 255 Zeichen. |
+| **Zeichenkette variabler Länge** | `VARCHAR(M)` | `VARCHAR(50)` -> `'Zürich'` | Verbraucht nur so viel Speicherplatz wie der tatsächliche Text lang ist (plus 1-2 Bytes für die Längeninfo). |
+| **Datum und/oder Zeit** | `DATE` / `TIME` / `DATETIME` | `DATETIME` -> `'2026-06-01 13:19:48'` | `DATE` speichert das Datum, `TIME` die Uhrzeit und `DATETIME` kombiniert beide. |
+| **Zeitstempel** | `TIMESTAMP` | `'2026-06-01 11:19:48'` | Ähnlich wie `DATETIME`, ist aber zeitzonenabhängig (wird in UTC gespeichert und für die lokale Zeitzone umgewandelt). |
+| **Binäre Datenobjekte variabler Länge (z.B. Bild)** | `BLOB` (oder `MEDIUMBLOB`, `LONGBLOB`) | Ein JPEG-Bild als Binärstream | Steht für *Binary Large Object*. Speichert grosse, unveränderte Binärdaten ohne Zeichensatzkonvertierung. |
+| **Verbund** | `SET('Wert1', 'Wert2', ...)` | `SET('Sport', 'Musik', 'Reisen')` | Ermöglicht die Auswahl von null, einem oder mehreren Werten gleichzeitig aus einer Liste. |
+| **JSON** | `JSON` | `'{"id": 1, "name": "Müller"}'` | Validiert den Text automatisch auf ein korrektes JSON-Format und erlaubt den schnellen Zugriff auf einzelne Key-Value-Paare. |
