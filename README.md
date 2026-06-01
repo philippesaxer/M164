@@ -320,7 +320,7 @@ BESTELLPOSITION {
 | :--- | :--- | :--- | :--- |
 | **Ganze Zahlen** | `INT` (oder `INTEGER`, `SMALLINT`, `TINYINT`, `BIGINT`) | `42` oder `-105` | Speichert positive und negative ganze Zahlen ohne Nachkommastellen. |
 | **Natürliche Zahlen** | `INT UNSIGNED` | `15` | Durch den Zusatz `UNSIGNED` werden negative Werte ausgeschlossen (Wertebereich beginnt bei 0). |
-| **Festkommazahlen (Dezimalzahlen)** | Decimal(M[,D]) | Decimal(6,2)<br>1234.56 | M=Gesamte Anzahl Stellen<br>D=Nachkommastellen |
+| **Festkommazahlen (Dezimalzahlen)** | `Decimal(M[,D])` | `Decimal(6,2)<br>1234.56` | M=Gesamte Anzahl Stellen<br>D=Nachkommastellen |
 | **Aufzählungstypen** | `ENUM('Wert1', 'Wert2', ...)` | `ENUM('klein', 'mittel', 'gross')` | Erlaubt die Auswahl genau eines Wertes aus einer vordefinierten Liste. |
 | **Boolean (logische Werte)** | `BOOLEAN` (oder `BOOL`) | `TRUE` oder `FALSE` | Intern wird dies als `TINYINT(1)` umgesetzt, wobei `0` für falsch und `1` für wahr steht. |
 | **Zeichen (einzelnes Zeichen)** | `CHAR(1)` | `'A'` | Speichert exakt ein Zeichen ab. |
