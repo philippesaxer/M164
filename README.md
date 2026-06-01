@@ -314,6 +314,7 @@ BESTELLPOSITION {
 | Non-Identifying | Nein | schwach | Person – Kleidung |
 
 
+# Datentypen
 
 | Datentyp | MariaDB (MySQL) | Beispiel | Bemerkung / Einstellungen |
 | :--- | :--- | :--- | :--- |
